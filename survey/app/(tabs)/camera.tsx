@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { CameraView, useCameraPermissions } from 'expo-camera';
+import * as MediaLibrary from 'expo-media-library';
 import AppHeader from '@/components/AppHeader';
 import { AppColors } from '@/constants/theme';
 
@@ -25,6 +26,7 @@ export default function CameraScreen() {
   const [cameraReady, setCameraReady] = useState(false);
   const [loading, setLoading] = useState(false);
   const [flash, setFlash] = useState<'off' | 'on'>('off');
+  const [saving, setSaving] = useState(false);
   const cameraRef = useRef<CameraView>(null);
 
   const formatTime = (date: Date) => {
@@ -87,6 +89,34 @@ export default function CameraScreen() {
         },
       ]
     );
+  };
+
+  const saveToGallery = async () => {
+    if (!photo) return;
+
+    setSaving(true);
+    try {
+      const { status } = await MediaLibrary.requestPermissionsAsync(true);
+      if (status !== 'granted') {
+        Alert.alert(
+          'Permission Required',
+          'Gallery permission is needed to save photos. Please enable it in settings.'
+        );
+        setSaving(false);
+        return;
+      }
+
+      const asset = await MediaLibrary.createAssetAsync(photo.uri);
+      if (asset) {
+        Alert.alert('Saved!', 'Photo has been saved to your gallery.', [
+          { text: 'OK' },
+        ]);
+      }
+    } catch {
+      Alert.alert('Error', 'Failed to save photo to gallery. Please try again.');
+    } finally {
+      setSaving(false);
+    }
   };
 
   if (!permission) {
@@ -169,11 +199,18 @@ export default function CameraScreen() {
           </View>
 
           <Pressable
-            style={({ pressed }) => [styles.usePhotoBtn, pressed && styles.pressed]}
-            onPress={() => Alert.alert('Saved', 'Photo saved to survey.')}
+            style={({ pressed }) => [styles.usePhotoBtn, pressed && styles.pressed, saving && styles.usePhotoBtnDisabled]}
+            onPress={saveToGallery}
+            disabled={saving}
           >
-            <Ionicons name="checkmark-circle" size={22} color={AppColors.white} />
-            <Text style={styles.usePhotoBtnText}>Use This Photo</Text>
+            {saving ? (
+              <ActivityIndicator size="small" color={AppColors.white} />
+            ) : (
+              <Ionicons name="download" size={22} color={AppColors.white} />
+            )}
+            <Text style={styles.usePhotoBtnText}>
+              {saving ? 'Saving...' : 'Save to Gallery'}
+            </Text>
           </Pressable>
         </ScrollView>
       </View>
@@ -478,5 +515,8 @@ const styles = StyleSheet.create({
     fontSize: 17,
     fontWeight: '700',
     color: AppColors.white,
+  },
+  usePhotoBtnDisabled: {
+    opacity: 0.6,
   },
 });
