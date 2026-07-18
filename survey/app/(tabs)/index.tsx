@@ -8,34 +8,12 @@ import QuickActionCard from '@/components/QuickActionCard';
 import RecentSurveyItem from '@/components/RecentSurveyItem';
 import { AppColors } from '@/constants/theme';
 import { useRouter } from 'expo-router';
-
-const mockRecentSurveys = [
-  {
-    id: '1',
-    siteName: 'Downtown Office Complex',
-    clientName: 'ABC Corporation',
-    priority: 'High' as const,
-    date: 'Jul 18, 2026',
-  },
-  {
-    id: '2',
-    siteName: 'Riverside Mall',
-    clientName: 'Metro Properties',
-    priority: 'Medium' as const,
-    date: 'Jul 17, 2026',
-  },
-  {
-    id: '3',
-    siteName: 'Green Valley Residential',
-    clientName: 'HomeBuild Inc.',
-    priority: 'Low' as const,
-    date: 'Jul 16, 2026',
-  },
-];
+import { useSurvey } from '@/contexts/SurveyContext';
 
 export default function DashboardScreen() {
   const [refreshing, setRefreshing] = useState(false);
   const router = useRouter();
+  const { surveys, todayCount } = useSurvey();
 
   const today = new Date().toLocaleDateString('en-US', {
     weekday: 'long',
@@ -48,6 +26,8 @@ export default function DashboardScreen() {
     setRefreshing(true);
     setTimeout(() => setRefreshing(false), 1500);
   };
+
+  const recentSurveys = surveys.slice(0, 3);
 
   return (
     <View style={styles.container}>
@@ -69,7 +49,7 @@ export default function DashboardScreen() {
 
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Survey Overview</Text>
-          <SurveyCountCard count={5} />
+          <SurveyCountCard count={todayCount > 0 ? todayCount : surveys.length} />
         </View>
 
         <View style={styles.section}>
@@ -105,16 +85,22 @@ export default function DashboardScreen() {
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Recent Surveys</Text>
           <View style={styles.surveysList}>
-            {mockRecentSurveys.map((survey) => (
-              <RecentSurveyItem
-                key={survey.id}
-                siteName={survey.siteName}
-                clientName={survey.clientName}
-                priority={survey.priority}
-                date={survey.date}
-                onPress={() => {}}
-              />
-            ))}
+            {recentSurveys.length > 0 ? (
+              recentSurveys.map((survey) => (
+                <RecentSurveyItem
+                  key={survey.id}
+                  siteName={survey.siteName}
+                  clientName={survey.clientName}
+                  priority={survey.priority}
+                  date={survey.date}
+                  onPress={() => {}}
+                />
+              ))
+            ) : (
+              <View style={styles.emptyState}>
+                <Text style={styles.emptyText}>No surveys yet. Create your first one!</Text>
+              </View>
+            )}
           </View>
         </View>
 
@@ -152,6 +138,16 @@ const styles = StyleSheet.create({
   },
   surveysList: {
     gap: 12,
+  },
+  emptyState: {
+    backgroundColor: AppColors.white,
+    borderRadius: 14,
+    padding: 32,
+    alignItems: 'center',
+  },
+  emptyText: {
+    fontSize: 14,
+    color: AppColors.gray400,
   },
   bottomPadding: {
     height: 20,
