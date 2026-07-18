@@ -29,6 +29,8 @@ const MAPPING: IconMapping = {
   'star.fill': 'star',
   'bell.fill': 'notifications',
   'gearshape.fill': 'settings',
+  'plus.fill': 'add',
+  'doc.text.fill': 'description',
 };
 
 /**

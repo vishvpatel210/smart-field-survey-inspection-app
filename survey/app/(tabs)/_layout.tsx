@@ -23,8 +23,7 @@ export default function TabLayout() {
           paddingTop: 6,
         },
         tabBarLabelStyle: {
-          fontSize: 11,
-          fontWeight: '600',
+          display: 'none',
         },
       }}>
       <Tabs.Screen
@@ -35,17 +34,24 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="new-survey"
-        options={{
-          title: 'New Survey',
-          tabBarIcon: ({ color }) => <IconSymbol size={24} name="add.circle.fill" color={color} />,
-        }}
-      />
-      <Tabs.Screen
         name="history"
         options={{
           title: 'History',
           tabBarIcon: ({ color }) => <IconSymbol size={24} name="clock.fill" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="new-survey"
+        options={{
+          title: 'New Survey',
+          tabBarIcon: ({ color }) => <IconSymbol size={24} name="plus.fill" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="camera"
+        options={{
+          title: 'Camera',
+          tabBarIcon: ({ color }) => <IconSymbol size={24} name="camera.fill" color={color} />,
         }}
       />
       <Tabs.Screen
@@ -57,12 +63,6 @@ export default function TabLayout() {
       />
       <Tabs.Screen
         name="explore"
-        options={{
-          href: null,
-        }}
-      />
-      <Tabs.Screen
-        name="camera"
         options={{
           href: null,
         }}
