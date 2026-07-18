@@ -3,6 +3,7 @@ import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import 'react-native-reanimated';
 import { SurveyProvider } from '@/contexts/SurveyContext';
+import { ProfileProvider } from '@/contexts/ProfileContext';
 
 import { useColorScheme } from '@/hooks/use-color-scheme';
 
@@ -15,15 +16,18 @@ export default function RootLayout() {
 
   return (
     <SurveyProvider>
-      <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-        <Stack>
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-          <Stack.Screen name="survey-preview" options={{ headerShown: false }} />
-          <Stack.Screen name="survey-edit" options={{ headerShown: false }} />
-          <Stack.Screen name="modal" options={{ presentation: 'modal', title: 'Modal' }} />
-        </Stack>
-        <StatusBar style="auto" />
-      </ThemeProvider>
+      <ProfileProvider>
+        <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+          <Stack>
+            <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+            <Stack.Screen name="survey-preview" options={{ headerShown: false }} />
+            <Stack.Screen name="survey-edit" options={{ headerShown: false }} />
+            <Stack.Screen name="profile-edit" options={{ headerShown: false }} />
+            <Stack.Screen name="modal" options={{ presentation: 'modal', title: 'Modal' }} />
+          </Stack>
+          <StatusBar style="auto" />
+        </ThemeProvider>
+      </ProfileProvider>
     </SurveyProvider>
   );
 }

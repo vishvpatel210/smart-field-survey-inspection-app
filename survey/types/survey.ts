@@ -35,3 +35,17 @@ export type SurveyContextType = {
   getSurveyById: (id: string) => Survey | undefined;
   todayCount: number;
 };
+
+export type Profile = {
+  name: string;
+  id: string;
+  course: string;
+  semester: string;
+  email: string;
+  photoUri?: string;
+};
+
+export type ProfileContextType = {
+  profile: Profile;
+  updateProfile: (data: Partial<Profile>) => void;
+};
