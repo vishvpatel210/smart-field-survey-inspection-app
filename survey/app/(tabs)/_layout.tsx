@@ -79,6 +79,12 @@ export default function TabLayout() {
           href: null,
         }}
       />
+      <Tabs.Screen
+        name="clipboard"
+        options={{
+          href: null,
+        }}
+      />
     </Tabs>
   );
 }
