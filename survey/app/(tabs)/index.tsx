@@ -71,7 +71,7 @@ export default function DashboardScreen() {
               title="Location"
               icon="location"
               color={AppColors.warning}
-              onPress={() => {}}
+              onPress={() => router.push('/(tabs)/location')}
             />
             <QuickActionCard
               title="Contacts"
