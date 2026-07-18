@@ -65,7 +65,7 @@ export default function DashboardScreen() {
               title="Camera"
               icon="camera"
               color={AppColors.secondary}
-              onPress={() => {}}
+              onPress={() => router.push('/(tabs)/camera')}
             />
             <QuickActionCard
               title="Location"
