@@ -77,7 +77,7 @@ export default function DashboardScreen() {
               title="Contacts"
               icon="people"
               color={AppColors.accent}
-              onPress={() => {}}
+              onPress={() => router.push('/(tabs)/contacts')}
             />
           </View>
         </View>
