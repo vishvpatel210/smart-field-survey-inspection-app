@@ -1,18 +1,35 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import AppHeader from '@/components/AppHeader';
+import RecentSurveyItem from '@/components/RecentSurveyItem';
+import EmptyContacts from '@/components/EmptyContacts';
 import { AppColors } from '@/constants/theme';
-import { Ionicons } from '@expo/vector-icons';
+import { useSurvey } from '@/contexts/SurveyContext';
+import { useRouter } from 'expo-router';
 
 export default function HistoryScreen() {
+  const { surveys } = useSurvey();
+  const router = useRouter();
+
   return (
     <View style={styles.container}>
-      <AppHeader title="Survey History" subtitle="View past surveys" />
-      <View style={styles.content}>
-        <Ionicons name="time-outline" size={64} color={AppColors.gray300} />
-        <Text style={styles.title}>Survey History</Text>
-        <Text style={styles.subtitle}>This will be implemented in Module 8</Text>
-      </View>
+      <AppHeader title="Survey History" subtitle={`${surveys.length} total`} />
+      {surveys.length === 0 ? (
+        <EmptyContacts message="No surveys yet. Create your first survey!" />
+      ) : (
+        <View style={styles.list}>
+          {surveys.map((survey) => (
+            <RecentSurveyItem
+              key={survey.id}
+              siteName={survey.siteName}
+              clientName={survey.clientName}
+              priority={survey.priority}
+              date={survey.date}
+              onPress={() => router.push({ pathname: '/survey-preview', params: { id: survey.id } })}
+            />
+          ))}
+        </View>
+      )}
     </View>
   );
 }
@@ -22,20 +39,8 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: AppColors.gray50,
   },
-  content: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingHorizontal: 32,
+  list: {
+    padding: 16,
     gap: 12,
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: '700',
-    color: AppColors.gray700,
-  },
-  subtitle: {
-    fontSize: 14,
-    color: AppColors.gray400,
   },
 });

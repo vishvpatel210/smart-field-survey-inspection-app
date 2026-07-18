@@ -93,7 +93,7 @@ export default function DashboardScreen() {
                   clientName={survey.clientName}
                   priority={survey.priority}
                   date={survey.date}
-                  onPress={() => {}}
+                  onPress={() => router.push({ pathname: '/survey-preview', params: { id: survey.id } })}
                 />
               ))
             ) : (
