@@ -38,10 +38,10 @@ export default function DashboardScreen() {
         showsVerticalScrollIndicator={false}
         refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} colors={[AppColors.primary]} tintColor={AppColors.primary} />}
       >
-        <WelcomeSection studentName="John Doe" date={today} />
+        <WelcomeSection studentName="Vishv Patel" date={today} />
 
         <StudentDetailsCard
-          name="John Doe"
+          name="Vishv Patel"
           id="STU-2026-0451"
           course="B.Tech Civil Engineering"
           semester="6th"

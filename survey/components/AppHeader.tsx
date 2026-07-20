@@ -3,6 +3,8 @@ import { View, Text, StyleSheet, StatusBar, Pressable } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { AppColors } from '@/constants/theme';
+import { DrawerActions } from '@react-navigation/native';
+import { useNavigation } from 'expo-router';
 
 type AppHeaderProps = {
   title: string;
@@ -22,6 +24,11 @@ export default function AppHeader({
   onRightPress,
 }: AppHeaderProps) {
   const insets = useSafeAreaInsets();
+  const navigation = useNavigation();
+
+  const handleMenuPress = onMenuPress ?? (() => {
+    navigation.dispatch(DrawerActions.openDrawer());
+  });
 
   return (
     <View style={[styles.container, { paddingTop: insets.top + 10 }]}>
@@ -29,7 +36,7 @@ export default function AppHeader({
       <View style={styles.content}>
         <View style={styles.leftSection}>
           {showMenu && (
-            <Pressable onPress={onMenuPress} style={styles.menuButton}>
+            <Pressable onPress={handleMenuPress} style={styles.menuButton}>
               <Ionicons name="menu" size={24} color={AppColors.white} />
             </Pressable>
           )}

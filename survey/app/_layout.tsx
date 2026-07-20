@@ -19,6 +19,7 @@ export default function RootLayout() {
       <ProfileProvider>
         <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
           <Stack>
+            <Stack.Screen name="(drawer)" options={{ headerShown: false }} />
             <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
             <Stack.Screen name="survey-preview" options={{ headerShown: false }} />
             <Stack.Screen name="survey-edit" options={{ headerShown: false }} />
