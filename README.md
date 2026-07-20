@@ -1,359 +1,144 @@
-# 📋 Smart Field Survey & Inspection App
+<div align="center">
 
-A modern **React Native (Expo)** application that helps field employees perform surveys and inspections efficiently. The app allows users to create surveys, capture site photos, fetch GPS location, access contacts, copy important information using the clipboard, preview surveys, and maintain survey history.
 
----
 
-# 📱 Project Overview
+<a href="https://github.com/Purnansh29/smart-field-survey-inspection-app">
+  <img src="https://readme-typing-svg.demolab.com?font=Poppins&weight=600&size=24&duration=3000&pause=800&color=0F9D6C&center=true&vCenter=true&width=600&lines=Digitizing+Field+Surveys+%F0%9F%8F%97%EF%B8%8F;Offline-First+%7C+Cross-Platform+%7C+Fast+%E2%9A%A1;Built+with+React+Native+%2B+Expo+%F0%9F%9A%80" alt="Typing SVG" />
+</a>
 
-The **Smart Field Survey & Inspection App** is designed for field inspectors, surveyors, and employees who perform on-site inspections.
+<br/>
 
-The application uses multiple **Expo APIs** including:
+![React Native](https://img.shields.io/badge/React_Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Expo](https://img.shields.io/badge/Expo-000020?style=for-the-badge&logo=expo&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![Platform](https://img.shields.io/badge/Platform-iOS%20%7C%20Android%20%7C%20Web-0F9D6C?style=for-the-badge)
 
-- 📷 Camera
-- 📍 Location
-- 👥 Contacts
-- 📋 Clipboard
+![GitHub Repo stars](https://img.shields.io/github/stars/Purnansh29/smart-field-survey-inspection-app?style=for-the-badge&color=gold)
+![GitHub last commit](https://img.shields.io/github/last-commit/Purnansh29/smart-field-survey-inspection-app?style=for-the-badge&color=blue)
+![GitHub license](https://img.shields.io/github/license/Purnansh29/smart-field-survey-inspection-app?style=for-the-badge&color=green)
 
-It also demonstrates modern React Native development with:
+</div>
 
-- Expo Router
-- Bottom Tab Navigation
-- Drawer Navigation
-- Reusable Components
-- Modern UI Design
-- React Hooks
+<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.gif" width="100%">
 
----
+## 📖 About The Project
 
-# 🚀 Features
+*SmartSurvey* is a modern, premium, cross-platform mobile and web application built using *React Native* and the *Expo* framework. It's specifically designed to streamline and digitize the field survey and site inspection process — replacing traditional paper forms with a fast, reliable, *offline-first* digital solution.
 
-## 🏠 Module 1 - Dashboard
+The project features a sleek design, dynamic statistics, native camera/gallery integration, and automated GPS location fetching with offline persistence.
 
-- Welcome Screen
-- Student Details
-- Today's Survey Count
-- Quick Action Cards
-- Custom App Header
-- Recent Survey Summary
+<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.gif" width="100%">
 
----
+## 📸 Screenshots
 
-## 📝 Module 2 - Create Survey
+<div align="center">
 
-Create a new survey with:
+<table>
+  <tr>
+    <td align="center"><b>Dashboard</b></td>
+    <td align="center"><b>Create Surveys</b></td>
+    <td align="center"><b>History & Filters</b></td>
+    <td align="center"><b>Profile</b></td>
+  </tr>
+  <tr>
+    <td><img src="https://res.cloudinary.com/drj44l5df/image/upload/v1784568107/1_ovjx1b.jpg" width="200"/></td>
+    <td><img src="https://res.cloudinary.com/drj44l5df/image/upload/v1784568188/3_ljowpj.jpg" width="200"/></td>
+    <td><img src="https://res.cloudinary.com/drj44l5df/image/upload/v1784568169/2_tkywxd.jpg" width="200"/></td>
+    <td><img src="https://res.cloudinary.com/drj44l5df/image/upload/v1784568259/5_suwbh4.jpg" width="200" alt="Profile Screen" /></td>
+  </tr>
+</table>
 
-- Site Name
-- Client Name
-- Description
-- Priority Selection
-- Survey Date
-- Required Field Validation
+</div>
 
----
+> 💡 The *Profile* screen shows account details — course, semester, and contact info — with a clean editable card layout and quick-access bottom navigation.
 
-## 📷 Module 3 - Camera
+<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.gif" width="100%">
 
-Camera functionalities include:
+## ✨ Features
 
-- Camera Permission Request
-- Capture Survey Photo
-- Image Preview
-- Capture Timestamp
-- Retake Photo
-- Delete Photo
-- Confirmation Alert Before Delete
-- Loading Indicator while Opening Camera
+| | Feature | Description |
+|---|---|---|
+| 📱 | *Cross-Platform Compatibility* | Run seamlessly on *iOS, Android, and Web* from a single codebase |
+| 🎨 | *Premium UI/UX* | Custom design system with layered cards, rounded aesthetics, dynamic progress rings & icons |
+| 💾 | *Offline-First Storage* | Local persistence via @react-native-async-storage/async-storage — survives reloads & network loss |
+| 📸 | *Native Device Media* | Capture inspection photos via expo-image-picker (camera or gallery) |
+| 📍 | *GPS Geo-tagging* | Auto-captures Latitude, Longitude & Accuracy using expo-location with a testing fallback |
+| 🔍 | *Survey Management & History* | Filter and search surveys by ID, site name, client, or priority (High/Medium/Low) |
+| 🗑️ | *Quick Deletions* | Delete draft surveys via long-press on Dashboard or the Preview screen |
+| 🍔 | *Hamburger Menu Navigation* | Drawer navigation with shortcuts to every module |
 
----
+<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.gif" width="100%">
 
-## 📍 Module 4 - Location
+## 🛠️ Tech Stack & Libraries
 
-Location services:
+<div align="center">
 
-- Request Location Permission
-- Current Latitude
-- Current Longitude
-- Location Accuracy
-- Refresh Current Location
-- Copy Location to Clipboard
-- Success Alert After Copy
+![Expo Router](https://img.shields.io/badge/Expo_Router-000020?style=flat-square&logo=expo&logoColor=white)
+![Context API](https://img.shields.io/badge/State-Context_API-61DAFB?style=flat-square&logo=react&logoColor=white)
+![AsyncStorage](https://img.shields.io/badge/Storage-AsyncStorage-3E863D?style=flat-square)
+![Expo Location](https://img.shields.io/badge/GPS-expo--location-0F9D6C?style=flat-square)
+![Expo Image Picker](https://img.shields.io/badge/Media-expo--image--picker-orange?style=flat-square)
+![Expo Haptics](https://img.shields.io/badge/Feedback-expo--haptics-purple?style=flat-square)
 
----
+</div>
 
-## 👥 Module 5 - Contacts
+- *Framework*: [React Native](https://reactnative.dev/) with [Expo (SDK 54)](https://expo.dev/)
+- *Navigation*: File-based routing via [Expo Router](https://docs.expo.dev/router/introduction/)
+- *State Management*: React Context API (ProfileContext, SurveyContext)
+- *Data Persistence*: React Native Async Storage
+- *Device APIs*: expo-image-picker · expo-location · expo-haptics
 
-Contact management features:
+<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.gif" width="100%">
 
-- Request Contacts Permission
-- Fetch Device Contacts
-- Search Contacts
-- Contact Counter
-- Pull to Refresh
-- Contact Avatar (Initial Letter)
-- Copy Contact Number
-- Show "No Number" if unavailable
-- Empty State Screen
+## 🚀 Getting Started
 
----
+### Prerequisites
+Make sure you have *Node.js* and the *Expo CLI* installed on your machine.
 
-## 📋 Module 6 - Clipboard
+### Installation
 
-Clipboard operations:
-
-- Copy Survey ID
-- Copy Contact Number
-- Copy Current Location
-- Paste Notes
-- Clear Clipboard Data
-
----
-
-## 👀 Module 7 - Survey Preview
-
-Preview all survey information before submission:
-
-- Site Details
-- Client Details
-- Captured Photo
-- Selected Contact
-- Current Location
-- Notes
-- Edit Survey
-- Submit Survey
-
----
-
-## 📚 Module 8 - Survey History
-
-Manage previous surveys:
-
-- FlatList Display
-- Search Survey
-- Filter by Priority
-- View Survey Details
-- Delete Survey
-- Confirmation Before Delete
-
----
-
-# 🧭 Navigation
-
-## Bottom Tabs
-
-- 🏠 Dashboard
-- ➕ New Survey
-- 📜 History
-- 👤 Profile
-
----
-
-## Drawer Navigation
-
-- Dashboard
-- Survey
-- Camera
-- Contacts
-- Location
-- Clipboard
-- Settings
-
----
-
-# 🛠 React Native Concepts Used
-
-- View
-- Text
-- Image
-- Button
-- Pressable
-- FlatList
-- ScrollView
-- TextInput
-- Alert
-- ActivityIndicator
-- RefreshControl
-- StyleSheet
-- useState
-- useEffect
-
----
-
-# 📦 Expo APIs Used
-
-| API | Purpose |
-|------|----------|
-| expo-camera | Capture survey photos |
-| expo-location | Get GPS location |
-| expo-contacts | Fetch device contacts |
-| expo-clipboard | Copy and paste data |
-
----
-
-# 📂 Project Structure
-
-```
-SmartFieldSurveyApp/
-│
-├── app/
-│   ├── (tabs)/
-│   │   ├── dashboard.jsx
-│   │   ├── survey.jsx
-│   │   ├── history.jsx
-│   │   └── profile.jsx
-│   │
-│   ├── drawer/
-│   │   ├── camera.jsx
-│   │   ├── contacts.jsx
-│   │   ├── location.jsx
-│   │   ├── clipboard.jsx
-│   │   └── settings.jsx
-│   │
-│   └── _layout.jsx
-│
-├── components/
-│   ├── Header.jsx
-│   ├── QuickCard.jsx
-│   ├── SurveyCard.jsx
-│   ├── ContactCard.jsx
-│   └── EmptyState.jsx
-│
-├── assets/
-│
-├── constants/
-│
-├── hooks/
-│
-├── utils/
-│
-├── package.json
-└── README.md
-```
-
----
-
-# ⚙ Installation
-
-Clone the repository
-
-```bash
-git clone https://github.com/yourusername/smart-field-survey-app.git
-```
-
-Go to project folder
-
-```bash
-cd smart-field-survey-app
-```
-
-Install dependencies
-
-```bash
+bash
+# 1. Clone the repository
+git clone https://github.com/vishvpatel210/smart-field-survey-inspection-app
+cd smart-field-survey-inspection-app/survey
+
+# 2. Install dependencies
 npm install
-```
 
-Start Expo
-
-```bash
+# 3. Start the local development server
 npx expo start
-```
 
----
 
-# 📦 Required Packages
+<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.gif" width="100%">
 
-```bash
-npx expo install expo-camera
-```
+## 📂 Project Structure
 
-```bash
-npx expo install expo-location
-```
 
-```bash
-npx expo install expo-contacts
-```
+survey/
+├── app/                  # Expo Router directory (Screens and Navigation)
+│   ├── (tabs)/           # Main bottom tabs (Dashboard, Profile, New Survey, History)
+│   ├── menu.tsx          # Drawer Hamburger Menu
+│   ├── survey-preview.tsx# Survey Details screen
+│   └── edit-profile.tsx  # Edit Profile screen
+├── components/           # Reusable UI components (Form inputs, Headers, Cards)
+├── constants/            # Styling theme values (colors, shadows, spacing)
+├── contexts/             # Global Context API providers (Profile, Survey lists)
+└── types/                # TypeScript type definitions
 
-```bash
-npx expo install expo-clipboard
-```
 
-```bash
-npx expo install @react-navigation/drawer
-```
+<img src="https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.gif" width="100%">
 
-```bash
-npx expo install react-native-gesture-handler
-```
+## 👤 Developer
 
-```bash
-npx expo install react-native-reanimated
-```
+<div align="center">
 
----
+<img src="https://github.com/vishvpatel210.png" width="100" style="border-radius:50%"/>
 
-# 📱 Screens
+### *Vishv Patel*
+React Native Developer
 
-- Dashboard
-- Create Survey
-- Camera
-- Contacts
-- Location
-- Clipboard
-- Survey Preview
-- Survey History
-- Profile
-- Settings
 
----
 
-# 🎯 Learning Outcomes
+</div>
 
-After completing this project, you will understand:
-
-- Expo Router
-- Drawer Navigation
-- Bottom Tab Navigation
-- React Hooks
-- State Management
-- FlatList
-- Pull-to-Refresh
-- Camera Integration
-- Location Services
-- Contacts API
-- Clipboard API
-- Form Validation
-- Reusable Components
-- Modern UI Design
-- CRUD-style Data Handling
-
----
-
-# 🔮 Future Improvements
-
-- Firebase Authentication
-- Cloud Image Upload
-- Offline Storage
-- Dark Mode
-- Push Notifications
-- Survey Analytics
-- PDF Report Export
-- QR Code Scanner
-- Map Integration
-- Backend API Integration
-
----
-
-# 👨‍💻 Developed By
-
-**Vishv Patel**
-
-Computer Science Engineering Student
-
----
-
-# 📄 License
-
-This project is created for educational purposes as part of the **React Native Mini Project Assignment**.
-
----
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0A6E4E,100:0F9D6C&height=120&section=footer" width="100%"/>
